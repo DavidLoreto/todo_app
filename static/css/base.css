@@ -1,0 +1,22 @@
+.header {
+    padding: 0 30px;
+}
+
+.card {
+    margin: 15px 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    margin-right: 15px;
+    width: 90%;
+    
+}
+
+.finish-task {
+    background-color: lightgray;
+}

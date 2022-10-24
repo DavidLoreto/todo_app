@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'task_new' %}" class="btn btn-primary btn-lg">+Add a new task</a>
+    {% for task in active %}
+
+    <div class="card">
+        <div class="card-body">
+            <p>{{ task.title }}</p>
+            <a class="btn btn-outline-primary me-2" href="{% url 'task_update' task.pk %}">Done</a>
+        </div>
+    </div>
+
+    {% endfor %}
+    
+    <br>
+
+    <h2>Finished tasks</h2>
+
+    {% for task in finish %}
+
+    <div class="card finish-task">
+        <div class="card-body">
+            <p>{{ task.title }}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    {% else %}
+
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <h1 class="display-5 fw-bold">To-Do List</h1>
+        <p class="col-md-8 fs-4">
+            This is simple To-Do list app. Please visit my <a href="https://github.com/DavidLoreto">Github</a>.
+        </p>
+        <a class="btn btn-primary btn-lg" href="{% url 'signup' %}">Sign Up</a>
+    </div>
+
+    {% endif %}
+    
+
+{% endblock content %}
+
